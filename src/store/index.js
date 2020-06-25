@@ -10,13 +10,15 @@ export default new Vuex.Store({
         imageUrl:'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
         title: 'Какое-то название',
         id: 'sfsdsgsdg',
-        date: '2020-07-15'
+        date: '2020-07-15',
+        time: '14:00'
       },
       {
         imageUrl:'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
         title: 'Какое-то название2',
         id: 'wefwefwef',
-        date: '2020-07-10'
+        date: '2020-07-10',
+        time: '15:00'
       }
     ],
     user: {
@@ -25,8 +27,24 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    createMeetup (state, payload) {
+      state.loadedMeetups.push(payload)
+    }
   },
   actions: {
+    createMeetup ({commit}, payload) {
+      const meetup = {
+        title: payload.title,
+        location: payload.location,
+        imageUrl: payload.imageUrl,
+        description: payload.description,
+        time: payload.time,
+        date: payload.date,
+        id: 'kfdlsfjslakl12'
+      }
+      // Reach out to firebase and store it
+      commit('createMeetup', meetup)
+    }
   },
   getters:{
     loadedMeetups (state) {

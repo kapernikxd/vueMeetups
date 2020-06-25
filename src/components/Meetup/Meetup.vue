@@ -11,7 +11,7 @@
                             height="400px"
                             :src="meetup.imageUrl"
                     ></v-img>
-                    <v-card-text class="info--text">{{ meetup.date }} - Place</v-card-text>
+                    <v-card-text class="info--text">{{ meetup.date }} в {{ meetup.time }} - Place</v-card-text>
                     <v-card-text>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текс</v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
