@@ -116,17 +116,7 @@
                     this.imageUrl !== '' &&
                     this.description !== ''
             },
-            // submittableDateTime () {
-            //     const time = new Date(this.time)
-            //     if (typeof this.time === 'string') {
-            //         let hours = this.time.match(/^(\d+)/)[1]
-            //         const minutes = this.time.match(/:(\d+)/)[1]
-            //         time.setHours(hours)
-            //         time.setMinutes(minutes)
-            //     }
-            //     console.log(time)
-            //     return time
-            // },
+
 
         },
         methods: {

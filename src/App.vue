@@ -62,15 +62,31 @@
 
     data: () => ({
       sideNav: false,
-      menuItems: [
-        {icon: 'supervisor_account',  text: 'View Meetups', link: '/meetups'},
-        {icon: 'room',  text: 'Organize Meetup', link: '/meetup/new'},
-        {icon: 'person',  text: 'Profile', link: '/profile'},
-        {icon: 'face',  text: 'Sign up', link: '/signin'},
-        {icon: 'lock_open',  text: 'Sign in', link: '/signup'},
-      ]
 
     }),
+
+    computed: {
+      menuItems () {
+        let menuItems = [
+            {icon: 'face',  text: 'Sign up', link: '/signin'},
+            {icon: 'lock_open',  text: 'Sign in', link: '/signup'},
+          ]
+
+        if (this.userIsAuthenticated) {
+          menuItems = [
+            {icon: 'supervisor_account',  text: 'View Meetups', link: '/meetups'},
+            {icon: 'room',  text: 'Organize Meetup', link: '/meetup/new'},
+            {icon: 'person',  text: 'Profile', link: '/profile'},
+          ]
+        }
+        return menuItems
+      },
+
+      userIsAuthenticated () {
+        return this.$store.getters.user !== null &&  this.$store.getters.user !== undefined
+      }
+
+    }
   };
 </script>
 
